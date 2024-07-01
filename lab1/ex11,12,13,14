@@ -1,0 +1,50 @@
+def sort_mid_weigt(x):
+    mas_weight = []
+    for stri in x:
+        weight = 0
+        for ch in str(stri):
+            weight += ord(ch)
+        mas_weight.append(int(weight)/int(len(stri)))
+
+    mas_weight,x = zip(*sorted(zip(mas_weight, x)))
+    return x
+    
+import statistics
+def median_of_string(s):
+    numbers = list(map(int, s.split()))
+    return statistics.median(numbers)
+def sort_strings_by_median(strings):
+    medians = [(median_of_string(s), s) for s in strings]
+    sorted_strings = sorted(medians, key=lambda x: x[0])
+    sorted_list = []
+    while sorted_strings:
+        median_value, string = sorted_strings.pop(0)  # Удаляем и получаем первый элемент
+        sorted_list.append(string)
+    return sorted_list
+
+def avg_deviation():
+    n = int(input())
+    lines = [input() for i in range(n)]
+
+    for i in range(n - 1):
+        for j in range(i + 1, n):
+            if sqrt((1/len(lines[i])) * sum([(ord(lines[i][k]) - get_max_avg(lines[i])) ** 2 for k in range(len(lines[i]))])) \
+               > sqrt((1/len(lines[j])) * sum([(ord(lines[j][k]) - get_max_avg(lines[j])) ** 2 for k in range(len(lines[j]))])):
+                lines[i], lines[j] = lines[j], lines[i]
+                # print(sqrt((1/len(lines[i])) * sum([(ord(lines[i][k]) - get_max_avg(lines[i])) ** 2 for k in range(len(lines[i]))])))
+    return lines
+
+def avg_dispers():
+    a = 0
+    for i in range(2, len(l[0])):
+        if (ord(l[0][i-2]) + ord(l[0][i-1]) + ord(l[0][i])) / 3 > a: a = (ord(l[0][i-2]) + ord(l[0][i-1]) + ord(l[0][i])) / 3
+    def keyFunc(string):
+        max = 0
+        for i in range(2, len(string)):
+            if (ord(string[i-2]) + ord(string[i-1]) + ord(string[i])) / 3 > max: max = (ord(string[i-2]) + ord(string[i-1]) + ord(string[i])) / 3
+        disp = 0
+        for i in range(2, len(string)):
+            disp += ((ord(string[i-2]) + ord(string[i-1]) + ord(string[i])) / 3) ** 2
+        disp /= len(string) - 2
+        return disp
+    return sorted(l, key=keyFunc)
