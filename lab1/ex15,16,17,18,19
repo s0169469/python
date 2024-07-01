@@ -1,0 +1,48 @@
+def find_min(x):
+    a=x[0]
+    for i in range(len(x)):
+        if x[i]<a:
+            a=x[i]
+    return a
+print("Введите количество элементов массива ")
+n=int(input())
+print("Введите элменты массива")
+k=8
+arr=[0]*k
+for i in range(n):
+    arr[i] = int(input())
+print("Введите индекс проверяемого элемента")
+i=int(input())
+if(arr[i]==find_min(arr)):
+    print("Элемент по указанному индексу является глобальным минимумом")
+else:
+    print("Элемент по указанному индексу не является глобальным минимумом")
+    
+def find_ind_min(x):
+    a=0
+    for i in range(len(x)):
+        if x[i]<x[a]:
+            a=i
+    return a
+def find_ind_max(x):
+    a=0
+    for i in range(len(x)):
+        if x[i]>x[a]:
+            a=i
+    return a
+def swipe_min_max(a):
+    i1=find_ind_min(a)
+    i2=find_ind_max(a)
+    t=a[i1]
+    a[i1]=a[i2]
+    a[i2]=t
+    for i in range(len(a)):
+        print(a[i], " ")
+print("Введите количество элементов массива ")
+n=int(input())
+print("Введите элменты массива")
+arr=[0]*n
+for i in range(n):
+    arr[i] = int(input())
+swipe_min_max(arr)
+
