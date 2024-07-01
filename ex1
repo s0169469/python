@@ -1,0 +1,48 @@
+def func1(a):
+    k=0
+    for i in range (1, x+1):
+        if a%i==0 and i%3!=0:
+            k+=1
+    return k
+x=int(input())
+print(func1(x))
+
+def func2(a):
+    k=10
+    while a>0:
+        if a%10 < k and a%2!=0:
+            k = a%10
+        a=int(a/10)
+    if k==10 : return "NaN"
+    return k
+x=int(input())
+print(func2(x))
+
+def coprime(a,b):
+    if a > b:
+        a=a+b
+        b=a-b
+        a=a-b
+    for i in range (2,a+1):
+        if a % i == 0 and b % i == 0:
+            return 0
+    return 1
+def sumnumbs(a):
+    k = 0
+    while a>0:
+        k+=(a%10)
+        a=int(a/10)
+    return k
+def multnumbs(a):
+    k=1
+    while a>0:
+        k*=(a%10)
+        a=int(a/10)
+    return k
+def func3(a):
+    k=0
+    for i in range(1,x+1):
+        if a%i == 0 and coprime(i,sumnumbs(a))==1 and coprime(i,multnumbs(a))==0:
+            k+=i
+    return k
+"""x = 144 s = 9 p = 16 d = 2,4,8,16  x=28 s = 10 p = 16 d = nan x= 35 s = 8 p = 15 d = 5,35"""
