@@ -1,0 +1,25 @@
+import pandas as pd
+
+
+def time_to_seconds(time_str):
+    mas_time = []
+    for time in time_str:
+        time = str(time)
+        time = time.replace(' мин.', '').replace(' сек.', '').split()
+        if time[0] != 'nan':
+            mas_time.append(int(time[0]) * 60 + int(time[1]))
+
+    return pd.Series(mas_time)
+
+
+data = pd.read_csv("5 - 1.csv")
+'''result = data[time_to_seconds(data.get("Затраченное время", ""))].reset_index()'''
+data.insert(1, 'NewCol', time_to_seconds(data.get("Затраченное время", "")))
+print(len(data))
+print(data.sort_values(by='NewCol'))
+data = pd.read_csv("5 - 2.csv")
+'''result = data[time_to_seconds(data.get("Затраченное время", ""))].reset_index()'''
+data.insert(1, 'NewCol', time_to_seconds(data.get("Затраченное время", "")))
+print(len(data))
+print(data.sort_values(by='NewCol'))
+
