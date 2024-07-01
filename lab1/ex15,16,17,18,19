@@ -46,3 +46,38 @@ for i in range(n):
     arr[i] = int(input())
 swipe_min_max(arr)
 
+# дан цел массив и интервал (a,b).
+# проверить наличие максимального элемента в этом интервале
+def func_17_29():
+    arr = enter_arr()
+    a = int(input('Enter a: '))
+    b = int(input('Enter b: '))
+    return a < max(arr) < b
+
+
+# дан целоч. массив. найти среднее арифметическое
+# модулей его элементов
+def func_18_41():
+    arr = enter_arr()
+    s = 0
+    for i in range(len(arr)):
+        s += abs(arr[i])
+    return float(s/len(arr))
+
+
+#для введенного списка построить новый с элементами,
+# большими, чем среднее арифм списка, но меньшими, чем
+# его максимальное значение
+def func_19_53():
+    s = []
+    num = int(input('Enter the number of list: '))
+    for i in range(num):
+        s1 = float(input('Enter element: '))
+        s.append(s1)
+    avg = 0
+    for i in range(num):
+        avg += s[i]
+    avg = avg / num
+    for i in range(num):
+        s[i] = random.uniform(avg, max(s))
+    return s
