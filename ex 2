@@ -1,0 +1,22 @@
+import random
+
+def random_str(x):
+    char = list(x)
+    random.shuffle(char)
+    y = "".join(char)
+    return y
+
+def is_palindrom(x):
+    y=""
+    for char in str(x):
+        if(char.isupper()):
+            y += str(char)
+    if (y == y[::-1]):
+        return "YES"
+    else:
+        return "NO"
+
+def sort_len_words(x):
+    words = x.split()
+    words.sort(key=len)
+    return " ".join(words)
