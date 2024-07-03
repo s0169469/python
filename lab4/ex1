@@ -16,6 +16,5 @@ def findMax(fileName):
         mx=max(mx, m2+a[i])
     return mx
 
-print(findMax("test.txt"))
 print(findMax("27-166a.txt"))
 print(findMax("27-166b.txt"))
